@@ -1,0 +1,32 @@
+package
+{
+	import org.flixel.*;
+
+	
+	public class LevelX extends GameLevel
+	{
+	
+		[Embed(source = "../assets/LevelX/Platforms.csv", mimeType = "application/octet-stream")]	public static var platformsCVS:Class;
+		[Embed(source = "../assets/LevelX/Floor.csv", mimeType = "application/octet-stream")]	public static var floorCSV:Class;
+		[Embed(source = "../assets/LevelX/Platforms.csv", mimeType = "application/octet-stream")]	public static var boundsCSV:Class;
+		[Embed(source = "../assets/LevelX/Water.csv", mimeType = "application/octet-stream")]	public static var waterCSV:Class;
+	
+		public function LevelX()
+		{
+			FlxG.flash(0xffDD6F00, .5);
+			FlxG.bgColor = 0xff808080;
+				
+			Register.levelHasWater = true;
+			Register.levelHasCheckpoint = true;
+			
+			Register.startPoint = new FlxPoint(STARTPOINT_X, STARTPOINT_Y)
+			
+			Register.floorLevel = FLOOR_Y;
+			Register.waterLevel = WATER_Y; //USUALLY FLOOR_Y + 2
+			
+			Register.checkPointCoords = new FlxPoint(CHECKPOINT_X, CHECKPOINT_Y);
+			
+			super();
+		}
+	}
+}
